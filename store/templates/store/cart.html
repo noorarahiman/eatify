@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart</title>
+    </head>
+    <body>
+<h2>Your Cart</h2>
+
+{% if cart_items %}
+        <ul>
+            {% for item in cart_items %}
+            <li>
+                {{ item.food_item.name }} - $ {{ item.food_item.price }} x {{ item.quantity }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h3><strong>Total:</strong> ${{ total_price }}</h3>
+
+        <a href="{% url 'place_order' %}">Place Order</a>
+
+{% else %}
+   <p>Your cart is empty</p>
+
+{% endif %}
+
+
+</body>
+</html>
